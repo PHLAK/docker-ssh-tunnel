@@ -10,7 +10,7 @@ RUN install -d -g nobody -o nobody -m 700 /.ssh \
 COPY files/authorize-key /usr/local/bin/authorize-key
 RUN chmod +x /usr/local/bin/authorize-key
 
-RUN apk add --update openssh-server=${SSHD_VERSION} pwgen tzdata \
+RUN apk add --update openssh-server=${SSHD_VERSION} tzdata \
     && rm -rf /var/cache/apk/*
 
 EXPOSE 22
