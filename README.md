@@ -14,18 +14,18 @@ named data volumes. This is not required but is _highly_ recommended.
     docker volume create --name ssh-tunnel-config
     docker volume create --name ssh-tunnel-data
 
+Next, before running the container, we must generate the server's host key files.
+
+    docker run --rm -v ssh-tunnel-config:/etc/ssh phlak/ssh-tunnel ssh-keygen -A
+
 After the data volume has been created run the daemon container with the named data volume:
 
     docker run -d -v ssh-tunnel-config:/etc/ssh -v ssh-tunnel-data:/.ssh -p 22:22 --name ssh-tunnel phlak/ssh-tunnel
 
-Once you have a running container we must generate the server's host key files.
-
-    docker exec ssh-tunnel ssh-keygen -A
-
 Lastly, in order to authenticate to the SSH server your SSH public key must be added to the
 server's `authorized_keys` file.
 
-    docker run -it --rm --volumes-from ssh-server phlak/ssh-tunnel echo '[YOUR_PUBLIC_KEY]' >> /.ssh/authorized_keys
+    docker exec -it ssh-tunnel authorize-key
 
 #### Optional run arguments
 
