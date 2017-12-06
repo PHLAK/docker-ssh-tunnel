@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Please enter your PUBLIC SSH key:"
+read key && echo ${key} >> /.ssh/known_hosts
+echo "Your key was successfully added to the server's known_hosts file"

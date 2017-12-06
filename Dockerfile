@@ -3,6 +3,9 @@ MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 ARG SSHD_VERSION=7.5_p1-r7
 
+COPY files/authorize-key /usr/local/bin/authorize-key
+RUN chmod +x /usr/local/bin/authorize
+
 RUN apk add --update openssh-server=${SSHD_VERSION} pwgen tzdata \
     && rm -rf /var/cache/apk/*
 
