@@ -1,7 +1,7 @@
-FROM alpine:3.8
+FROM alpine:3.9
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
-ARG SSHD_VERSION=7.7_p1-r3
+ARG SSHD_VERSION=7.9_p1-r2
 
 RUN install -d -g nobody -o nobody -m 700 /.ssh \
     && install -g nobody -o nobody -m 600 /dev/null /.ssh/authorized_keys \
