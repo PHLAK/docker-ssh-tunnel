@@ -1,7 +1,7 @@
 FROM alpine:3.13.2
 LABEL maintainer="Chris Kankiewicz <Chris@ChrisKankiewicz.com>"
 
-ARG SSHD_VERSION=8.3_p1-r0
+ARG SSHD_VERSION=8.4_p1-r2
 
 RUN install -d -g nobody -o nobody -m 700 /.ssh \
     && install -g nobody -o nobody -m 600 /dev/null /.ssh/authorized_keys \
