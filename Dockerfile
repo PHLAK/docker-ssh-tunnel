@@ -1,4 +1,4 @@
-FROM alpine:3.13.2
+FROM alpine:3.14.2
 LABEL maintainer="Chris Kankiewicz <Chris@ChrisKankiewicz.com>"
 
 ARG SSHD_VERSION=8.4_p1-r2
